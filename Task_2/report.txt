@@ -1,0 +1,37 @@
+Varan Sharma
+Operating Systems - Lab 2
+Part 2 Report
+
+Fork is called at different places throughout the program.
+This means there are multiple processes running simultaneously.
+I will go through the steps taken by each process (P, Q, and R).
+
+P:
+In P, fork() is called to create Q.
+In process P, fq holds the value of the pid of Q.
+This means fq != 0 so P continues in the outermost
+else statement where (b = a + b - 5) is performed.
+
+Q:
+Q is created at the first call to fork().
+It also has variables a, b, fq, and fr
+because fork() clones the parent process.
+fq is equal to 0 in Q, so the first if statement is entered.
+(a = a + b) is performed here and fork() is called.
+
+Now R has been created as a child to Q.
+In Q, fr != 0 because it will hold the pid of R.
+The if statement is entered and (b = b + 20) is called.
+
+R:
+R is a child to Q.
+In R, fr == 0 so the else is entered.
+This is where a = (a * b) + 30 is performed.
+
+NOTE:
+fork() does not guarantee that one process will be performed before the other.
+Upon running the program hundreds of times,
+I saw that the execution order would sometimes be different.
+This can be seen when the values of a, b, and pid are different
+in the corresponding lines of multiple outputs.
+
