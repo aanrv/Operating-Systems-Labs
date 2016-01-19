@@ -1,4 +1,4 @@
-There was a slight problem with this project.
+There was a slight problem with this assignment.
 
 The exit() function was meant to be used to pass the resulting value from the child to the parent process.
 The issue with this is that only the lower 8 bits are passed through exit.
